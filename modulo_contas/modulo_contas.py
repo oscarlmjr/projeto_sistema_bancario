@@ -1,5 +1,10 @@
-class Contas:
-    def __init__(self, agencia):
+"""
+    Esse módulo inicia os tipos de conta disponíveis na agência: conta corrente
+    (pessoa física ou jurídica) e conta poupança (pessoa física)"""
+
+class Contas:   # _3.1.0
+
+    def __init__(self, agencia):   # _3.1.1
         self.modulo_contas = agencia['modulo_contas']
         self.valor_agencia = agencia['valor_agencia']
         self.lista_boa_vista_bank_json = 'lista_boa_vista_bank.json'
@@ -51,15 +56,15 @@ class Contas:
 
         self.self_contas = self
     
-    def menu_self(self, lista_self):
+    def menu_self(self, lista_self):   # _3.1.2
         self_contas = self.self_contas 
         lista_self.update({'self_contas': self_contas})
 
         from modulo_pessoa.modulo_pessoa import Pessoa
         Pessoa(self.__dict__).menu_self(lista_self)
         
-    def menu_opcao(self, agencia, lista_self):
+    # def menu_opcao(self, agencia, lista_self):   # _3.1.3
 
-        from modulo_contas.modulo_menu_contas import Menu
-        Menu.menu_opcao(self, agencia, lista_self)
+    #     from modulo_contas.modulo_menu_contas import Menu
+    #     Menu.menu_opcao(self, agencia, lista_self)
     

@@ -1,6 +1,9 @@
+"""
+    Os módulos das agências são gerados pelos usuários da agência matriz, com permissão, apartir
+    do modulo_lista_matriz, classe Lista, função cadastrar_agencia."""
 
-class Agencia:
-    def __init__(self, valor_agencia):
+class Agencia:   # _2.0
+    def __init__(self, valor_agencia):   # _2.1
         self.valor_agencia = valor_agencia
         self.classe_nome = 'Agência'
         self.lista_acesso_json = f'lista_acesso_{self.valor_agencia}.json'
@@ -20,8 +23,11 @@ class Agencia:
         self.modulo_contas = 'modulo_contas'
         
         self.self_agencia = self
+
+    """
+        O modulo_agencia_0001 será acessado por funcionários da agência Matriz e da agência 0001. """
             
-    def menu_self(self, self_matriz):
+    def menu_self(self, self_matriz):   # _2.2
         self_agencia = self.self_agencia            
 
         if self_matriz is not None:
@@ -32,7 +38,7 @@ class Agencia:
         from modulo_contas.modulo_contas import Contas
         Contas(self.__dict__).menu_self(lista_self)   
     
-    def menu_opcao(self, lista_self):
+    # def menu_opcao(self, lista_self):   # _2.3
 
-        from modulo_agencia.modulo_menu_agencia import Menu
-        Menu.menu_opcao(self, lista_self)
+    #     from modulo_agencia.modulo_menu_agencia import Menu
+    #     Menu.menu_opcao(self, lista_self)  

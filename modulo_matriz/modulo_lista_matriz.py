@@ -1,9 +1,9 @@
 import json
 
 
-class Lista:
+class Lista:   # _6.2.0
 
-    def acesso_filial(self, agencia, lista_self):   # _5.2.1
+    def acesso_filial(self, agencia, lista_self):   # _6.2.1
         
         try:
             with open(self.lista_boa_vista_bank_json, 'r+', encoding='utf8') as arquivo:
@@ -31,7 +31,7 @@ class Lista:
         from modulo_matriz.modulo_menu_matriz import Menu
         Menu.menu_opcao(self, agencia, lista_self)
         
-    def cadastrar_agencia(self, agencia, lista_self):   # _5.2.2
+    def cadastrar_agencia(self, agencia, lista_self):   # _6.2.2
         
         try:    
             with open(self.lista_boa_vista_bank_json, 'r+', encoding='utf8') as arquivo:

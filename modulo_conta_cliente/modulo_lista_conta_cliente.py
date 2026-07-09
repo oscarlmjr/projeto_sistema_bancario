@@ -1,9 +1,9 @@
 import json
 
 
-class Lista:
+class Lista:   # _8.3.0
 
-    def lista_conta_cliente(self, agencia, lista_self):   # _6.3.1
+    def lista_conta_cliente(self, agencia, lista_self):   # _8.3.1
         self.lista_cliente_json = f'lista_cliente_{self.valor_dado_variavel}.json'
         dados = False
 
@@ -26,7 +26,7 @@ class Lista:
         if self.opcao == self.extrato:
             Lista.extrato_opcao(self, agencia, lista_self)                            
     
-    def extrato_opcao(self, agencia, lista_self):   # _6.3.2
+    def extrato_opcao(self, agencia, lista_self):   # _8.3.2
 
         for extrato_mes in self.dados_cliente[self.extrato]:
             if extrato_mes.get('mês', ) == self.mes_extrato:

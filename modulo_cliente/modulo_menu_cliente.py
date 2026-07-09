@@ -1,7 +1,7 @@
 import sys
 
 
-class Menu:
+class Menu:   # _7.2.0
 
     def menu_autenticacao(self):   # _7.2.1
 

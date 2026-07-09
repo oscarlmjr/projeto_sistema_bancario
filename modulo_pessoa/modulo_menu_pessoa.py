@@ -1,9 +1,9 @@
 import sys
 
 
-class Menu:
+class Menu:   # _4.2.0
 
-    def menu_opcao(self, agencia, contas, lista_self):         
+    def menu_opcao(self, agencia, contas, lista_self):   # _4.2.1        
         classe_nome = agencia['classe_nome']
         self_matriz = lista_self.get('self_matriz', )
 
@@ -61,7 +61,7 @@ class Menu:
             from modulo_pessoa.modulo_menu_pessoa import Menu
             Menu.menu_acao(self, agencia, contas, lista_self)
    
-    def menu_acao(self, agencia, contas, lista_self): 
+    def menu_acao(self, agencia, contas, lista_self):   # _4.2.2 
         
         conta_cadastrada = contas['conta_cadastrada']
         print(f'\nconta_cadastrada___ = {conta_cadastrada}')
@@ -100,7 +100,7 @@ class Menu:
             from modulo_pessoa.modulo_lista_pessoa import Lista
             Lista.listar_variavel(self, agencia, contas, lista_self)
         
-    def saida():
+    def saida():   # _4.2.3
     
         sys.exit('\nO sistema está sendo finalizado.\n')
         

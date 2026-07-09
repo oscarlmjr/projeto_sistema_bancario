@@ -1,9 +1,14 @@
 import sys, json
 
 
-class Menu: 
+class Menu:   # _5.1.0 
+    
+    """
+        Menu de autenticação.
+        Caso não haja nenhum usuário cadastrado, o primeiro usuário será cadastrado
+        sem processo de autenticação e com privilégio de administrador."""
 
-    def menu_autenticacao(self, lista_self, valor_agencia_filial=None):   # _4.1.1
+    def menu_autenticacao(self, lista_self, valor_agencia_filial=None):   # _5.1.1
         
         while True:
 
@@ -11,12 +16,14 @@ class Menu:
             print(f'{self.classe_nome} {self.valor_agencia}')
             print('Autenticação')
             print('Sair (1)\n')
-            
+
+            # self.valor_matricula_acesso = '11112'
             self.valor_matricula_acesso = input(f'Digite a {self.matricula}:\n')
             if self.valor_matricula_acesso == '1':
                 from modulo_agencia.modulo_menu_agencia import Menu
                 Menu.saida()
-                    
+                
+            # self.valor_senha_acesso = '1205'        
             self.valor_senha_acesso = input(f'\nDigite a {self.senha}:\n')
             if self.valor_senha_acesso == '1':
                 from modulo_agencia.modulo_menu_agencia import Menu
@@ -31,15 +38,17 @@ class Menu:
                         
                 except:
                     self.lista_acesso_json = f'lista_acesso_0001.json'
-                    print('\nexcept')                
 
             from modulo_agencia.modulo_lista_agencia import Lista
             Lista.lista_autenticacao(self, lista_self, valor_agencia_filial)
+    """
+        O menu_opcao possui dois menus: um para administradores e usuários da agência Matriz
+        e o outro menu para usuários das agências. Podendo cadastrar usuários (Cadastrar Usuário (1));
+        e descadastrar usuários (Descadastrar Usuário (2)); acessar as contas bancárias das pessoas físicas 
+        e jurídicas cadastradas (Contas (3)); usuários com permissão de administrador podem acessar o 
+        menu da agência Matriz (Matriz (4)); e sair do sistema (Sair(4 ou 5))."""        
             
-            # self.valor_matricula_acesso = '11112'
-            # self.valor_senha_acesso = '1205'
-            
-    def menu_opcao(self, lista_self):
+    def menu_opcao(self, lista_self):   # _5.1.2
         self_matriz = lista_self.get('self_matriz', )
 
         while True:
@@ -66,9 +75,12 @@ class Menu:
                 from modulo_agencia.modulo_menu_agencia import Menu
                 Menu.descadastrar_usuario(self, lista_self)
 
-            elif opcao == '3': 
-                from modulo_contas.modulo_contas import Contas
-                Contas(self.__dict__).menu_opcao(self.__dict__, lista_self)
+            elif opcao == '3':
+                self_contas = lista_self.get('self_contas', ) 
+                # from modulo_contas.modulo_contas import Contas
+                # Contas(self.__dict__).menu_opcao(self.__dict__, lista_self)
+                from modulo_contas.modulo_menu_contas import Menu
+                Menu.menu_opcao(self_contas, self.__dict__, lista_self)
                 
             elif self_matriz is not None and opcao == '4': 
                 from modulo_matriz.modulo_menu_matriz import Menu
@@ -77,7 +89,7 @@ class Menu:
             from modulo_agencia.modulo_menu_agencia import Menu
             Menu.saida()
 
-    def cadastrar_usuario(self, lista_self):
+    def cadastrar_usuario(self, lista_self):   # _5.1.3
             
         valor_matricula = input(f'\nDigite a_ {self.matricula}:\n')
         if valor_matricula == '1':
@@ -92,7 +104,7 @@ class Menu:
         from modulo_agencia.modulo_lista_agencia import Lista
         Lista.lista_usuario(self, lista_self)
 
-    def descadastrar_usuario(self, lista_self):
+    def descadastrar_usuario(self, lista_self):   # _5.1.4
         self.opcao = 'descadastrar'
 
         self.valor_matricula = input(f'\nDigite_ a {self.matricula}:\n')
@@ -100,6 +112,6 @@ class Menu:
         from modulo_agencia.modulo_lista_agencia import Lista
         Lista.lista_usuario(self, lista_self)
 
-    def saida():   # _4.1.5
+    def saida():   # _5.1.5
         
         sys.exit('\nO sistema está sendo finalizado.\n')

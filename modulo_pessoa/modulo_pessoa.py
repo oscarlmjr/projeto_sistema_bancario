@@ -1,7 +1,10 @@
+"""
+    Esse módulo inicia os tipos de cadastro de pessoa disponíveis na agência:
+    pessoa física (RG) e pessoa jurídica (CNPJ)"""
 
-class Pessoa: 
+class Pessoa:   # _4.1.0
 
-    def __init__(self, contas): 
+    def __init__(self, contas):   # _4.1.1
         self.valor_agencia = contas['valor_agencia']
         self.lista_pessoa_json = f'lista_pessoa_{self.valor_agencia}.json'          
         self.lista_pessoa = [[], []]
@@ -24,8 +27,12 @@ class Pessoa:
         self.modulo_menu_pessoa = 'modulo_menu_pessoa'
         
         self.self_pessoa = self   
+        
+    """
+        Fim da adição dos selfs das classes à lista_self.
+        Direcionamento para o menu autenticação."""
 
-    def menu_self(self, lista_self):        
+    def menu_self(self, lista_self):   # _4.1.2
         self_pessoa = self.self_pessoa
         lista_self.update({'self_pessoa': self_pessoa})
         self_agencia = lista_self.get('self_agencia', )
@@ -33,43 +40,12 @@ class Pessoa:
         from modulo_agencia.modulo_menu_agencia import Menu
         Menu.menu_autenticacao(self_agencia, lista_self)     
 
-    def menu_opcao(self, agencia, contas, lista_self):
+    def menu_opcao(self, agencia, contas, lista_self):   # _4.1.3
 
         from modulo_pessoa.modulo_menu_pessoa import Menu
         Menu.menu_opcao(self, agencia, contas, lista_self)
         
-    def listar_variavel(self, agencia, contas, lista_self):
+    def listar_variavel(self, agencia, contas, lista_self):   # _4.1.4
 
         from modulo_pessoa.modulo_lista_pessoa import Lista
-        Lista.listar_variavel(self, agencia, contas, lista_self) 
-        
-  
-########################
-       
-    # @property
-    # def nome(self):
-    #     return self._nome
-    # @nome.setter
-    # def nome(self, valor):
-    #     self._nome = valor
-    
-    # @property
-    # def rg(self):
-    #     return self._rg
-    # @cnpj.setter
-    # def rg(self, valor):
-    #     self._rg = valor
-
-    # @property
-    # def nome(self):
-    #     return self._nome
-    # @nome.setter
-    # def nome(self, valor):
-    #     self._nome = valor
-    
-    # @property
-    # def cnpj(self):
-    #     return self._cnpj
-    # @cnpj.setter
-    # def cnpj(self, valor):
-    #     self._cnpj = valor
+        Lista.listar_variavel(self, agencia, contas, lista_self)    

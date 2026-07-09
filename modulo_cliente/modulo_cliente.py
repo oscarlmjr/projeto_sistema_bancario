@@ -1,7 +1,8 @@
 # shift + ctrl + l = comenta / ctrl + l = descomenta
 
-class Cliente:   # _7
-    def __init__(self):
+class Cliente:   # _7.1.0
+
+    def __init__(self):   # _7.1.1
         self.classe_nome = Cliente.__name__
         self.lista_cliente = []  
         self.lista_boa_vista_bank_json = 'lista_boa_vista_bank.json'
@@ -41,7 +42,7 @@ class Cliente:   # _7
         self.modulo_menu_cliente = 'modulo_menu_cliente'
         self.modulo_lista_cliente = 'modulo_lista_cliente'
         
-    def cliente_autenticacao(self):   # _7.1.1
+    def cliente_autenticacao(self):   # _7.1.2
 
         from modulo_menu_cliente import Menu
         Menu.menu_autenticacao(self)

@@ -1,7 +1,7 @@
 
-class ContaCliente:  
+class ContaCliente:   # _8.1.0 
         
-    def cliente_autenticacao(self, agencia, lista_self):   # _6.1.1        
+    def cliente_autenticacao(self, agencia, lista_self):   # _8.1.1       
         self.valor_senha_acesso = agencia['valor_senha_acesso']
 
         print(f'\nBoa Vista Bank')

@@ -1,9 +1,9 @@
 import json, copy
 
 
-class Lista:   # _2.3.1
+class Lista:   # _3.3.0
     
-    def listar_acao(self, agencia, lista_self):        
+    def listar_acao(self, agencia, lista_self):   # _3.3.1        
         self.conta_cadastrada = False
         lista_conta = []  
         lista_temporaria = []      
@@ -196,7 +196,7 @@ class Lista:   # _2.3.1
         from modulo_contas.modulo_contas import Contas
         Contas(agencia).menu_opcao(agencia, lista_self)   
         
-    def cadastrar_conta(self, agencia, lista, lista_self):   # _2.3.2
+    def cadastrar_conta(self, agencia, lista, lista_self):   # _3.3.2
         self.valor_conta_variavel = agencia['valor_conta_variavel'] 
         self.conta_variavel = agencia['conta_variavel'] 
         self.opcao_conta = agencia['opcao_conta'] 
@@ -232,7 +232,7 @@ class Lista:   # _2.3.1
         from modulo_contas.modulo_contas import Contas
         Contas(agencia).menu_opcao(agencia, lista_self)
         
-    def transferir_variavel(self, agencia, lista_self):   # _2.3.3
+    def transferir_variavel(self, agencia, lista_self):   # _3.3.3
         classe_nome = agencia['classe_nome']
 
         for dados_lista in self.lista_transferencia:
@@ -249,7 +249,7 @@ class Lista:   # _2.3.1
         from modulo_contas.modulo_contas import Contas
         Contas(agencia).menu_opcao(agencia, lista_self)
         
-    def descadastrar_conta(self, agencia, lista_self):   # _2.3.4
+    def descadastrar_conta(self, agencia, lista_self):   # _3.3.4
 
         while True:          
 

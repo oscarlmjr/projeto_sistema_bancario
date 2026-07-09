@@ -1,7 +1,7 @@
 
-class Menu:
+class Menu:   # _8.2.0
 
-    def menu_opcao(self, agencia, lista_self):   # _6.2.1
+    def menu_opcao(self, agencia, lista_self):   # _8.2.1
 
         while True:
 

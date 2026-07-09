@@ -1,7 +1,7 @@
 import json
 
 
-class Lista:
+class Lista:   # _7.3.0
 
     def cliente_autenticacao(self):   # _7.3.1
         self.lista_conta_json = f'lista_conta_{self.valor_agencia}.json'
@@ -173,13 +173,13 @@ class Lista:
 
         Lista.movimentacao_extrato(self, self.saque, self.valor_saque)
 
-    def deposito_opcao(self):   # _7.3.7
+    def deposito_opcao(self):   # _7.3.5
         
         self.lista_cliente[self.indice][self.valor_conta][self.saldo] += self.valor_deposito
 
         Lista.movimentacao_extrato(self, self.deposito, self.valor_deposito)
     
-    def movimentacao_extrato(self, opcao, valor_opcao):   # _7.3.5
+    def movimentacao_extrato(self, opcao, valor_opcao):   # _7.3.6
         self.mes_extrato = '9'   # mês atual
         movimentacao = False
         
@@ -220,7 +220,7 @@ class Lista:
 
         Lista.movimentacao_conta(self)
     
-    def movimentacao_conta(self):   # _7.3.6
+    def movimentacao_conta(self):   # _7.3.7
         
         with open(self.lista_conta_json, 'r+', encoding='utf8') as arquivo:
             self.lista_cliente = json.load(arquivo)

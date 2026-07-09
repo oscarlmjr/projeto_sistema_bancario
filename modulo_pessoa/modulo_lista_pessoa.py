@@ -1,9 +1,9 @@
 import json
 
 
-class Lista: 
+class Lista:   # _4.3.0 
             
-    def listar_variavel(self, agencia, contas, lista_self):
+    def listar_variavel(self, agencia, contas, lista_self):   # _4.3.1
         self.conta_cadastrada = contas['conta_cadastrada']
         pessoa_cadastrada = False
 
@@ -113,7 +113,7 @@ class Lista:
         from modulo_pessoa.modulo_pessoa import Pessoa
         Pessoa(contas).menu_opcao(agencia, contas, lista_self)
         
-    def cadastrar_pessoa(self, agencia, contas, lista_self):
+    def cadastrar_pessoa(self, agencia, contas, lista_self):   # _4.3.2
 
         if self.pessoa_variavel == self.pessoa_fisica:
             lista = {self.dado_variavel: self.valor_dado_variavel, self.dado_nome: self.dado_nome_variavel, 
@@ -157,7 +157,7 @@ class Lista:
         from modulo_pessoa.modulo_lista_pessoa import Lista   # (?)
         Lista.direcionamento(self, agencia, contas, lista_self)
 
-    def descadastrar_pessoa(self, agencia, contas, lista_self):
+    def descadastrar_pessoa(self, agencia, contas, lista_self):   # _4.3.3
 
         while True:          
             confirmacao = input(f'Confirma exclusão de {self.valor_dado_variavel}?\n'
@@ -181,7 +181,7 @@ class Lista:
             else:
                 return 
  
-    def direcionamento(self, agencia, contas, lista_self):
+    def direcionamento(self, agencia, contas, lista_self):   # _4.3.4
         
         while True:
             direcionamento = input(f'\n{self.classe_nome}\n\np_ Contas (1) / {self.classe_nome} (2):\n')

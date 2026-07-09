@@ -1,9 +1,19 @@
 import sys, json
 
 
-class Menu:
+class Menu:   # _3.2.0
+    """
+        O menu_opcao possui dois menus: um para administradores e usuários da agência Matriz
+        e o outro menu para usuários das agências. Podendo listar uma conta do cliente apartir do
+        seu RG ou CNPJ, ou do número da conta corrente ou poupança (Listar (1));
+        cadastrar contas pessoa física ou jurídica (Cadastrar (2)); retornar todas as contas de cada cliente
+        apartir do seu RG ou CNPJ (Retornar ocorrências (3)); transferir a conta, ou as contas de um cliente
+        para outra agência (Transferir (4)); descadastrar uma conta (Descadastrar (5)); acessar o menu Pessoa
+        onde as informações pessoais dos clientes estão cadastradas e podem ser manipuladas (Pessoa (6));
+        retornar para o menu da agência (Agência (7)); usuários com permissão de administrador podem acessar o 
+        menu da agência Matriz (Matriz (8)); e sair do sistema (Sair(8 ou 9))."""
     
-    def menu_opcao(self, agencia, lista_self):   # 
+    def menu_opcao(self, agencia, lista_self):   # _3.2.1
         classe_nome = agencia['classe_nome']
         self_matriz = lista_self.get('self_matriz', )
         
@@ -71,7 +81,7 @@ class Menu:
             from modulo_contas.modulo_menu_contas import Menu
             Menu.menu_acao(self, agencia, lista_self)
             
-    def menu_acao(self, agencia, lista_self):       
+    def menu_acao(self, agencia, lista_self):   # _3.2.2
             
         print('\nMenu (0)')
 
@@ -208,7 +218,7 @@ class Menu:
 
         Menu.teste_valor_dado(self, agencia, lista_self)
 
-    def teste_dado_variavel(self, agencia, lista_self):
+    def teste_dado_variavel(self, agencia, lista_self):   # _3.2.3
          
          while True:          
 
@@ -230,7 +240,7 @@ class Menu:
 
             break
 
-    def teste_valor_dado(self, agencia, lista_self):
+    def teste_valor_dado(self, agencia, lista_self):   # _3.2.4
         
         if self.valor_dado_variavel == '0' or self.dado_valor == '0':
             from modulo_contas.modulo_menu_contas import Menu
@@ -240,7 +250,7 @@ class Menu:
         Lista.listar_acao(self, agencia, lista_self)
     
         
-    def saida():
+    def saida():   # _3.2.5
     
         sys.exit('\nO sistema está sendo finalizado.\n')
         
