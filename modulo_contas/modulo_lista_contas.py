@@ -1,281 +1,182 @@
 import json, copy
 
-print('3.3.0_')
-class Lista:   # 3.3.1.0_
-    print('3.3.1.0_')
-    def listar_acao(self, agencia, lista_self):   # 3.3.1.1_
-        print('3.3.1.1_')
-        valor_agencia = agencia['valor_agencia']
-        self.conta_cadastrada = False
-        self.conta_transferir = False
-        lista_conta = []
-        lista_temporaria = []
-        conta_fisica = []
-        conta_juridica = []
-        pessoa_fisica = []
-        pessoa_juridica = []
-        dados_pessoa = {}
 
-        try:
-            with open(self.lista_transferencia_json, 'r+', encoding='utf8') as arquivo:
-                self.lista_temporaria = json.load(arquivo)
-                if self.lista_temporaria is None:
-                    self.lista_temporaria = []
-        except:
-            ...
-        """
-            Sempre que a função listar_acao é acionada self.lista_temporaria será acionada, se não estiver vazia,
-            para realizar as transferências para as devidas agências solicitadas. A self.lista_temporaria contém 
-            as contas transferidas para as suas devidas agências descritas na chave: agencia_transferir"""
-        if len(self.lista_temporaria) > 0:
+class Lista:   # 3.3.0_
+	print('3.3.0_')
+	def listar_contas(self, agencia, lista_self):   # 3.3.1_
+		print('3.3.1_')
+		conta_cadastrada = False
+		transferencia = False
+		inativar = False
+		ocorrencias = False
 
-            for dados_agencia in self.lista_temporaria:
-                for agencia_transferir, dados_transferir in dados_agencia.items():
+		try:
+			with open(self.lista_conta_json, 'r+', encoding='utf8') as arquivo:
+				self.lista_contas = json.load(arquivo)
+		except:
+			...
 
-                    if valor_agencia == agencia_transferir:
-                        if dados_transferir.get(self.conta_corrente, ) is not None:
-                            conta_corrente = dados_transferir.get(self.conta_corrente, )
+		while True:
 
-                            if conta_corrente[0] == '2':
-                                conta_juridica.append({conta_corrente: dados_transferir})
-                            else:
-                                conta_fisica.append({conta_corrente: dados_transferir})
+			for indice_conta, dados_conta in enumerate(self.lista_contas[self.opcao_conta]):
+				for valor_conta_variavel, dados in dados_conta.items():
 
-                        elif dados_transferir.get(self.conta_poupanca, ) is not None:
-                            conta_poupanca = dados_transferir.get(self.conta_poupanca, )
-                            conta_fisica.append({conta_poupanca: dados_transferir})
-                    else:
-                        lista_temporaria.append(dados_agencia)
+					if valor_conta_variavel == self.valor_conta_variavel:
+						if dados.get(self.historico, )[-1][0] == None:
+							conta_cadastrada = None
+							transferencia = None
+							inativar = None
+							break
+						if dados.get(self.historico, )[-1][0] != self.valor_agencia:
+							print(f'\n_{self.conta_variavel} {self.valor_conta_variavel} transferida para agência {dados.get(self.historico, )[-1][0]}.')
 
-            self.lista_temporaria = lista_temporaria
+							from modulo_contas.modulo_menu_contas import Menu
+							Menu.menu_opcao(self, agencia, lista_self)
 
-            with open(self.lista_transferencia_json, 'w+', encoding='utf8') as arquivo:
-                json.dump(self.lista_temporaria, arquivo, ensure_ascii=False, indent=2)
+						if self.opcao == 'listar':
+							conta_cadastrada = True
+							self.indice_conta = indice_conta
+							self.dados_contas = dados
 
-        try:
-            with open(self.lista_pessoa_json, 'r+', encoding='utf8') as arquivo:
-                self.lista_pessoa = json.load(arquivo)
-                if self.lista_pessoa is None:
-                    self.lista_pessoa = [[], []]
-        except:
-            ...
-        """
-            Os dados referentes ao Tipo Pessoa serão acrescentadas a self.lista_pessoa e 
-            inseridas na lista_pessoa própria da agência."""
-        if len(conta_fisica) > 0:
-            for dados_conta in conta_fisica:
-                for conta, dados in dados_conta.items():
-                    dados_pessoa.update(RG=dados.get("RG", ), Nome=dados.get("Nome", ), Sexo=dados.get("Sexo", ))
-                    dados_pessoa.setdefault("Tipo Pessoa", dados.get("Tipo Pessoa", ))
-                pessoa_fisica.append({dados.get("RG", ): dados_pessoa}) 
+						elif self.opcao == 'transferir':
+							transferencia = True
+							print(f'\nv_ = {dados}')
+							print(f'{self.valor_agencia=}')
+							dados.get(self.historico, ).append([self.valor_agencia_transferir, self.valor_conta_transferir])
+							dados_transferir = copy.deepcopy(dados)
+							dados_transferir[self.conta_variavel] = self.valor_conta_transferir
+							dados_transferir.update(Agência=self.valor_agencia_transferir)
 
-            for dados_pessoa in pessoa_fisica:
-                if dados_pessoa in self.lista_pessoa[0]:
-                    continue
-                else:
-                    self.lista_pessoa[0].append(dados_pessoa)
-            dados_pessoa = {}
+							self.conta_transferir = {self.valor_conta_transferir: dados_transferir}
+							self.valor_dado_variavel = dados.get(self.dado_variavel, )
 
-        if len(conta_juridica) > 0:
-            for dados_conta in conta_juridica:
-                for conta, dados in dados_conta.items():
-                    dados_pessoa.update(CNPJ=dados.get("CNPJ", ), Nome=dados.get("Nome", ))
-                    dados_pessoa.setdefault("Tipo Pessoa", dados.get("Tipo Pessoa", ))
-                pessoa_juridica.append({dados.get("CNPJ", ): dados_pessoa})
+							with open(self.lista_conta_json, 'w+', encoding='utf8') as arquivo:
+								json.dump(self.lista_contas, arquivo, ensure_ascii=False, indent=2)
 
-            for dados_pessoa in pessoa_juridica:
-                if dados_pessoa in self.lista_pessoa[1]:
-                    continue
-                else:
-                    self.lista_pessoa[1].append(dados_pessoa)
+							from modulo_contas.modulo_lista_contas import Lista
+							Lista.transferir_conta(self, agencia, lista_self)
 
-        with open(self.lista_pessoa_json, 'w+', encoding='utf8') as arquivo:
-            json.dump(self.lista_pessoa, arquivo, ensure_ascii=False, indent=2)
+						elif self.opcao == 'inativar':
+							inativar = True
+							dados.get(self.historico, ).append([None])
+							break
 
-        try:
-            with open(self.lista_conta_json, 'r+', encoding='utf8') as arquivo:
-                self.lista_contas = json.load(arquivo)
-                if self.lista_contas is None:
-                    self.lista_contas = [[], []]
-        except:
-            ...
+					elif dados.get(self.dado_variavel, ) == self.valor_dado_variavel:
+						ocorrencias = True
+						if self.opcao == 'ocorrencias':
+							print(f'\nv = {dados}')
 
-        if len(conta_fisica) > 0:
-            for dados_conta in conta_fisica:
-                self.lista_contas[0].append(dados_conta)
+					if transferencia is  not False or inativar is not False or conta_cadastrada is not False:
+						break
+				if transferencia is  not False or inativar is not False or conta_cadastrada is not False:
+					break
+			if transferencia is  not False or inativar is not False or conta_cadastrada is not False:
+				break
+			break
 
-        elif len(conta_juridica) > 0:
-            for dados_conta in conta_juridica:
-                self.lista_contas[1].append(dados_conta)
+		with open(self.lista_conta_json, 'w+', encoding='utf8') as arquivo:
+			json.dump(self.lista_contas, arquivo, ensure_ascii=False, indent=2)
 
-        with open(self.lista_conta_json, 'w+', encoding='utf8') as arquivo:
-            json.dump(self.lista_contas, arquivo, ensure_ascii=False, indent=2)
+		if self.opcao == 'listar':
 
-        if len(self.lista_contas) > 0:
+			if conta_cadastrada is True:
+				print(f'\ncliente_ {self.nome_conta} {self.valor_conta_variavel} possui cadastro.')
+				print(self.lista_contas[self.opcao_conta][self.indice_conta][self.valor_conta_variavel], '\n')
 
-            while True:
+				from modulo_cliente.modulo_menu_cliente import Menu
+				Menu.menu_opcao(self)
 
-                for self.indice_conta, dados_conta in enumerate(self.lista_contas[self.opcao_conta]):
-                    for valor_conta_variavel, dados in dados_conta.items():
+			elif conta_cadastrada is False:
+				print(f'\ncliente_2 {self.nome_conta} {self.valor_conta_variavel} não possui cadastro')
 
-                        if self.opcao == 'Ocorrências' or self.opcao == 'Transferir':
-                            if dados.get(self.dado_variavel, ) == self.valor_dado_variavel:
-                                self.conta_transferir = True
+			elif conta_cadastrada is None:
+				print(f'_\n{self.conta_variavel} {self.valor_conta_variavel} está inativa.')
+				print(f'\nINATIVA ##### INATIVA ##### INATIVA\n\n{dados}\n\nINATIVA ##### \
+						INATIVA ##### INATIVA\n')
 
-                                if valor_conta_variavel[0] == '2' or valor_conta_variavel[-1] == '1':
-                                    print(f'\nv = {dados}')
-                                elif valor_conta_variavel[0] == '1' and valor_conta_variavel[-1] == '2':
-                                    print(f'\nv_ = {dados}')
+		elif self.opcao == 'ocorrencias':
+			if ocorrencias is True:
+				print(f'\nTodas as ocorrências encontradas para {self.dado_variavel} {self.valor_dado_variavel}.')
+			else:
+				print(f'\n{self.dado_variavel} {self.valor_dado_variavel} não possui ocorrência.')
 
-                                if self.opcao == 'Transferir':
-                                    self.lista_transferencia.append({self.agencia_transferir: dados})
+		elif self.opcao == 'transferir':
 
-                                    lista_historico = copy.deepcopy(dados[self.historico])
-                                    lista_historico.append(self.agencia_transferir)
-                                    dados_conta_temporario = {valor_conta_variavel: {self.historico: lista_historico}}
-                                    lista_conta.append(dados_conta_temporario)
+			if transferencia is False:
+				print(f'\n{self.conta_variavel} {self.valor_conta_variavel} não possui ocorrência.')
 
-                            elif self.opcao == 'Transferir':
-                                lista_conta.append(dados_conta)
+			else:
+				print(f'\n{self.conta_variavel} {self.valor_conta_variavel} está inativa.')
 
-                        elif valor_conta_variavel == self.valor_conta_variavel:
-                            self.conta_cadastrada = True
-                            break
-                    if self.conta_cadastrada is True:
-                        break
-                if self.opcao == 'Transferir' and self.conta_transferir is True:
+		elif self.opcao == 'inativar':
+			if inativar is True:
+				print(f'\n_{self.conta_variavel} {self.valor_conta_variavel} está sendo inativada.')
+				print(f'\nINATIVA ##### INATIVA ##### INATIVA\n\n{dados}\n\nINATIVA ##### INATIVA ##### INATIVA\n')
 
-                    self.lista_contas[self.opcao_conta] = lista_conta        
-                    with open(self.lista_conta_json, 'w+', encoding='utf8') as arquivo:
-                        json.dump(self.lista_contas, arquivo, ensure_ascii=False, indent=2)
-                break
+			elif inativar is False:
+				print(f'\n_{self.conta_variavel} {self.valor_conta_variavel} não está cadastrada.')
 
-        if self.opcao == 'Listar' and self.conta_cadastrada is True:
-            print(f'\nlistar_ {self.valor_conta_variavel} possui cadastro.')
-            print(self.lista_contas[self.opcao_conta][self.indice_conta][self.valor_conta_variavel], '\n')
+			elif inativar is None:
+				print(f'\n{self.conta_variavel} {self.valor_conta_variavel} está inativa.')
 
-            consulta_extrato = input('Consultar o extrato do cliente: Sim (1) Não (2)\n')
-            if consulta_extrato != '1' and consulta_extrato != '2':
-                print('\nDigite uma opção válida.\n')
+		from modulo_contas.modulo_menu_contas import Menu
+		Menu.menu_opcao(self, agencia, lista_self)
 
-            elif consulta_extrato == '1':
+	def cadastrar_conta(self, agencia, lista_self, lista):   # 3.3.2_
+		print('3.3.2_')
+		valor_agencia = agencia['valor_agencia']
+		classe_nome = agencia['classe_nome']
 
-                from modulo_conta_cliente.modulo_conta_cliente import ContaCliente
-                ContaCliente.cliente_autenticacao(self, agencia, lista_self)
+		import secrets
 
-        elif self.opcao == 'Listar' and self.conta_cadastrada is False:
+		valor_senha = str(secrets.randbelow(1000))
+		self.valor_senha = valor_senha.zfill(4)
 
-            print(f'\nlistar_2 {self.valor_conta_variavel} não possui cadastro')
-            self_pessoa = lista_self.get('self_pessoa', )
+		lista_cadastrar = {self.senha: self.valor_senha, self.conta_variavel: self.valor_conta_variavel,
+						   classe_nome: valor_agencia, self.tipo_conta: self.conta_variavel,
+						   self.saldo: self.valor_saldo, self.debito: self.valor_debito, self.credito: self.valor_credito,
+						   self.extrato: self.valor_extrato, self.historico: [[self.valor_agencia, self.valor_conta_variavel]]}
 
-            from modulo_pessoa.modulo_lista_pessoa import Lista
-            Lista.listar_variavel(self_pessoa, agencia, self.__dict__, lista_self)
+		for chave, valor in lista.items():
+			lista_cadastrar[chave] = valor
 
-        elif self.opcao == 'Cadastrar':
-            print(f'\ncadastrar_2 {self.nome_conta} {self.valor_conta_variavel} não possui cadastro.')
-            self_pessoa = lista_self.get('self_pessoa', )
+		lista_cadastrar = {self.valor_conta_variavel: lista_cadastrar}
 
-            from modulo_pessoa.modulo_lista_pessoa import Lista
-            Lista.listar_variavel(self_pessoa, agencia, self.__dict__, lista_self)
+		self.lista_contas[self.opcao_conta].append(lista_cadastrar)
 
-        elif self.opcao == 'Ocorrências' and self.conta_transferir is True or self.opcao == 'Transferir' and self.conta_transferir is True:
-            print(f'\nTodas as ocorrências encontradas para {self.dado_variavel} {self.valor_dado_variavel}.')
-            if self.opcao == 'Transferir':
-                print(f'\nTransferindo\n')
+		with open(self.lista_conta_json, 'w+', encoding='utf8') as arquivo:
+			json.dump(self.lista_contas, arquivo, ensure_ascii=False, indent=2)
 
-                from modulo_contas.modulo_lista_contas import Lista
-                Lista.transferir_variavel(self, agencia, lista_self)
+			print(f'{self.conta_variavel} {self.valor_conta_variavel}_ cadastrado com sucesso_.\n')
+			print(f'{self.lista_contas[self.opcao_conta][-1][self.valor_conta_variavel]}\n')
 
-        elif self.opcao == 'Ocorrências' and self.conta_transferir is False or self.opcao == 'Transferir' and self.conta_transferir is False:
-            print(f'\n{self.dado_variavel} {self.valor_dado_variavel} não possui ocorrência.')
-        elif self.opcao == 'Descadastrar' and self.conta_cadastrada is True:
-            print(f'Descadastrando: {self.valor_conta_variavel}\n')
+		from modulo_contas.modulo_menu_contas import Menu
+		Menu.menu_opcao(self, agencia, lista_self)
 
-            from modulo_contas.modulo_lista_contas import Lista
-            Lista.descadastrar_conta(self, agencia, lista_self)
+	def transferir_conta(self, agencia, lista_self):   # 3.3.3_
+		print('3.3.3_')
+		print('Transferindo')
 
-        elif self.opcao == 'Descadastrar' and self.conta_cadastrada is False:
-            print(f'descadastrar {self.valor_conta_variavel} não possui cadastro.')
+		self.lista_conta_json = f'lista_conta_{self.valor_agencia_transferir}.json'
 
-        from modulo_contas.modulo_menu_contas import Menu
-        Menu.menu_opcao(self, agencia, lista_self)
+		try:
+			with open(self.lista_conta_json, 'r+', encoding='utf8') as arquivo:
+				self.lista_contas = json.load(arquivo)
+		except:
+			with open(self.lista_conta_json, 'w+', encoding='utf8') as arquivo:
+				json.dump(self.lista_contas, arquivo, ensure_ascii=False, indent=2)
 
-    def cadastrar_conta(self, agencia, lista, lista_self):   # 3.3.1.2_
-        print('3.3.1.2_')
-        valor_agencia = agencia['valor_agencia']
-        classe_nome = agencia['classe_nome']
+		self.lista_contas[self.opcao_conta].append(self.conta_transferir)
 
-        from random import randint
+		print(f'\nlista_conta_{self.valor_agencia_transferir}:\n{self.lista_contas[self.opcao_conta][-1]}\n')
 
-        self.valor_senha = str(randint(0000, 9999))
+		with open(self.lista_conta_json, 'w+', encoding='utf8') as arquivo:
+			json.dump(self.lista_contas, arquivo, ensure_ascii=False, indent=2)
 
-        lista_cadastrar = {self.senha: self.valor_senha, self.conta_variavel: self.valor_conta_variavel,
-                           classe_nome: valor_agencia, self.tipo_conta: self.conta_variavel,
-                           self.saldo: self.valor_saldo, self.debito: self.valor_debito, self.credito: self.valor_credito,
-                           self.extrato: self.valor_extrato, self.historico: self.lista_historico}
+		self.lista_conta_json = f'lista_conta_{self.valor_agencia}.json'
 
-        for chave, valor in lista.items():
-            lista_cadastrar[chave] = valor
+		pessoa_transferir = True
+		self_pessoa = lista_self.get('self_pessoa')
 
-        lista_cadastrar = {self.valor_conta_variavel: lista_cadastrar}
-
-        with open(self.lista_conta_json, 'r+', encoding='utf8') as arquivo:
-                self.lista_contas = json.load(arquivo)  
-
-        self.lista_contas[self.opcao_conta].append(lista_cadastrar)
-
-        with open(self.lista_conta_json, 'w+', encoding='utf8') as arquivo:
-            json.dump(self.lista_contas, arquivo, ensure_ascii=False, indent=2)
-
-            print(f'{self.conta_variavel} {self.valor_conta_variavel}_ cadastrado com sucesso_.\n')
-            print(f'{self.lista_contas[self.opcao_conta][-1][self.valor_conta_variavel]}\n')
-
-        from modulo_contas.modulo_menu_contas import Menu
-        Menu.menu_opcao(self, agencia, lista_self)
-
-    def transferir_variavel(self, agencia, lista_self):   # 3.3.1.3_
-        print('3.3.1.3_')
-        classe_nome = agencia['classe_nome']
-
-        for dados_lista in self.lista_transferencia:
-            for agencia_transferir, dados_conta in dados_lista.items():
-                dados_temporarios = dados_conta
-                dados_temporarios[classe_nome] = self.agencia_transferir
-                dados_temporarios[self.historico].append(self.agencia_transferir)
-            self.lista_temporaria.append({agencia_transferir: dados_temporarios})
-
-        with open(self.lista_transferencia_json, 'w+', encoding='utf8') as arquivo:
-            json.dump(self.lista_temporaria, arquivo, ensure_ascii=False, indent=2)
-            
-        from modulo_contas.modulo_menu_contas import Menu
-        Menu.menu_opcao(self, agencia, lista_self)
-
-    def descadastrar_conta(self, agencia, lista_self):   # 3.3.1.4_
-        print('3.3.1.4_')
-
-        while True:
-
-            confirmacao = input(f'Confirma exclusão de {self.valor_conta_variavel}?\n'
-            f'{self.lista_contas[self.opcao_conta][self.indice_conta][self.valor_conta_variavel]}\n'
-            f'\nSim (1) Não(2)\n')
-
-            if confirmacao != '1' and confirmacao != '2':
-                print('\nDigite uma opção válida.\n')
-                continue
-            elif confirmacao == '1':
-
-                with open(self.lista_conta_json, 'r+', encoding='utf8') as arquivo:
-                    self.lista_contas = json.load(arquivo)
-                    if self.lista_contas is None:
-                        self.lista_contas = [[], []]
-
-                del self.lista_contas[self.opcao_conta][self.indice_conta]
-                print(f'\n{self.valor_conta_variavel} foi descadastrado\n')
-
-                with open(self.lista_conta_json, 'w+', encoding='utf8') as arquivo:
-                    json.dump(self.lista_contas, arquivo, ensure_ascii=False, indent=2)
-
-            from modulo_contas.modulo_contas import Contas
-            Contas(agencia).menu_opcao(agencia, lista_self)
-            # from modulo_contas.modulo_menu_contas import Menu
-            # Menu.menu_opcao(agencia, lista_self)
+		from modulo_pessoa.modulo_lista_pessoa import Lista
+		Lista.listar_variavel(self_pessoa, agencia, self.__dict__, lista_self, None, pessoa_transferir)

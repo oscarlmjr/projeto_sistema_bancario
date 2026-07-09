@@ -1,0 +1,215 @@
+[
+  [
+    {
+      "11111": {
+        "Senha": "2925",
+        "Conta Corrente": "11111",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 90,
+        "Débito": 0,
+        "Crédito": 90,
+        "Extrato": [
+          {
+            "mês": "7",
+            "7": {
+              "mês": "7",
+              "Saldo": 90,
+              "Crédito": 90,
+              "Débito": 0,
+              "Saque": 10,
+              "Depósito": 100
+            }
+          }
+        ],
+        "Histórico": [
+          [
+            "0002",
+            "11111"
+          ],
+          [
+            "0003",
+            "11111"
+          ]
+        ],
+        "RG": "1234",
+        "Nome": "Oscar",
+        "Sexo": "m",
+        "Tipo Pessoa": "Pessoa Física"
+      }
+    },
+    {
+      "11112": {
+        "Senha": "6920",
+        "Conta Poupança": "11112",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Poupança",
+        "Saldo": 100,
+        "Débito": 0,
+        "Crédito": 100,
+        "Extrato": [
+          {
+            "mês": "7",
+            "7": {
+              "mês": "7",
+              "Saldo": 100,
+              "Crédito": 100,
+              "Débito": 0,
+              "Saque": 10,
+              "Depósito": 100
+            }
+          }
+        ],
+        "Histórico": [
+          [
+            "0002",
+            "11112"
+          ],
+          [
+            "0003",
+            "11112"
+          ]
+        ],
+        "RG": "2345",
+        "Nome": "Gabriel",
+        "Sexo": "m",
+        "Tipo Pessoa": "Pessoa Física"
+      }
+    },
+    {
+      "11121": {
+        "Senha": "2808",
+        "Conta Corrente": "11121",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 0,
+        "Débito": 0,
+        "Crédito": 0,
+        "Extrato": [],
+        "Histórico": [
+          [
+            "0002",
+            "11121"
+          ],
+          [
+            null
+          ]
+        ],
+        "RG": "3456",
+        "Nome": "Fulana",
+        "Sexo": "f",
+        "Tipo Pessoa": "Pessoa Física"
+      }
+    },
+    {
+      "11131": {
+        "Senha": "7380",
+        "Conta Corrente": "11131",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 0,
+        "Débito": 0,
+        "Crédito": 0,
+        "Extrato": [],
+        "Histórico": [
+          [
+            "0002",
+            "11131"
+          ]
+        ],
+        "RG": "1234",
+        "Nome": "Oscar",
+        "Sexo": "m",
+        "Tipo Pessoa": "Pessoa Física"
+      }
+    },
+    {
+      "11122": {
+        "Senha": "1870",
+        "Conta Poupança": "11122",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Poupança",
+        "Saldo": 0,
+        "Débito": 0,
+        "Crédito": 0,
+        "Extrato": [],
+        "Histórico": [
+          [
+            "0002",
+            "11122"
+          ],
+          [
+            null
+          ]
+        ],
+        "RG": "2345",
+        "Nome": "Gabriel",
+        "Sexo": "m",
+        "Tipo Pessoa": "Pessoa Física"
+      }
+    }
+  ],
+  [
+    {
+      "21111": {
+        "Senha": "1126",
+        "Conta Corrente": "21111",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 90,
+        "Débito": 0,
+        "Crédito": 90,
+        "Extrato": [
+          {
+            "mês": "7",
+            "7": {
+              "mês": "7",
+              "Saldo": 90,
+              "Crédito": 90,
+              "Débito": 0,
+              "Saque": 10,
+              "Depósito": 100
+            }
+          }
+        ],
+        "Histórico": [
+          [
+            "0002",
+            "21111"
+          ],
+          [
+            "0003",
+            "21111"
+          ]
+        ],
+        "CNPJ": "12345",
+        "Nome": "BV Code",
+        "Tipo Pessoa": "Pessoa Jurídica"
+      }
+    },
+    {
+      "21112": {
+        "Senha": "8824",
+        "Conta Corrente": "21112",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 0,
+        "Débito": 0,
+        "Crédito": 0,
+        "Extrato": [],
+        "Histórico": [
+          [
+            "0002",
+            "21112"
+          ],
+          [
+            null
+          ]
+        ],
+        "CNPJ": "12345",
+        "Nome": "BV Code",
+        "Tipo Pessoa": "Pessoa Jurídica"
+      }
+    }
+  ]
+]

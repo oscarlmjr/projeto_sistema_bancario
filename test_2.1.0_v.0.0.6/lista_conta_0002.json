@@ -1,0 +1,119 @@
+[
+  [
+    {
+      "11111": {
+        "Senha": "9964",
+        "Conta Corrente": "11111",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 90,
+        "Débito": 0,
+        "Crédito": 90,
+        "Extrato": [
+          {
+            "mês": "7",
+            "7": {
+              "mês": "7",
+              "Saldo": 90,
+              "Crédito": 90,
+              "Débito": 0,
+              "Saque": 10,
+              "Depósito": 100
+            }
+          }
+        ],
+        "Histórico": [
+          [
+            "0001",
+            "11111"
+          ],
+          [
+            "0002",
+            "11111"
+          ]
+        ],
+        "RG": "1234",
+        "Nome": "Oscar",
+        "Sexo": "m",
+        "Tipo Pessoa": "Pessoa Física"
+      }
+    },
+    {
+      "11112": {
+        "Senha": "9215",
+        "Conta Poupança": "11112",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Poupança",
+        "Saldo": 100,
+        "Débito": 0,
+        "Crédito": 100,
+        "Extrato": [
+          {
+            "mês": "7",
+            "7": {
+              "mês": "7",
+              "Saldo": 100,
+              "Crédito": 100,
+              "Débito": 0,
+              "Saque": 10,
+              "Depósito": 100
+            }
+          }
+        ],
+        "Histórico": [
+          [
+            "0001",
+            "11112"
+          ],
+          [
+            "0002",
+            "11112"
+          ]
+        ],
+        "RG": "2345",
+        "Nome": "Gabriel",
+        "Sexo": "m",
+        "Tipo Pessoa": "Pessoa Física"
+      }
+    }
+  ],
+  [
+    {
+      "21111": {
+        "Senha": "720",
+        "Conta Corrente": "21111",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 90,
+        "Débito": 0,
+        "Crédito": 90,
+        "Extrato": [
+          {
+            "mês": "7",
+            "7": {
+              "mês": "7",
+              "Saldo": 90,
+              "Crédito": 90,
+              "Débito": 0,
+              "Saque": 0,
+              "Depósito": 100
+            }
+          }
+        ],
+        "Histórico": [
+          [
+            "0001",
+            "21111"
+          ],
+          [
+            "0002",
+            "21111"
+          ]
+        ],
+        "CNPJ": "12345",
+        "Nome": "BV Code",
+        "Tipo Pessoa": "Pessoa Jurídica"
+      }
+    }
+  ]
+]

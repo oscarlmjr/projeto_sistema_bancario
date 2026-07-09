@@ -1,3 +1,13 @@
+Criar issue "Substituir whitespace por tabs"
+Criar issue "Criar Docstrings"
+Criar Pull Request "Tradução inglês"
+
+criar lista_transferencia com "Histórico": "0001", "valor_agencia_transferir"
+a valor_conta_variavel permanece na lista_conta_json de origem.
+todas as agencias só poderão operar as contas se o self.historico[-1] = valor_agencia
+
+##############################
+
 # multiplica cursor: Ctrl + Alt + arrow
 # multiplica cursor embaixo do cursor original: Shift + Alt + click 
 # multiplica cursor: Alt + click 
@@ -11,19 +21,7 @@
 # Adiconar cursor à seleção: Ctrl + Shift + l
 # Replace: Ctrl + h
 
-# import json, copy
-
-# lista_contas = []
-
-
-# with open('lista_conta_teste.json', 'w+', encoding='utf8') as arquivo:
-        # json.dump(lista_contas, arquivo, ensure_ascii=False, indent=2)
-
-
-
-
-
-################################################
+##############################
 
 # Limpe o buffer no módulo de teclado em Python.
 
@@ -38,17 +36,13 @@
 
 # print('')
 
-# CLEAR_RIGHT = "\033[K"  # Limpa para a direita do cursor
-# PREV_LINE = "\033[F"  # Move o cursor para a linha anterior
+# CLEAR_RIGHT = "\033[K"  # Limpa para a direita do cursor]"
+# PREV_LINE = "\033[F"  # Move o cursor para a linha anterior]"
 
 # text = input("Digite algo: ")
 # print(f"{PREV_LINE}Você digitou: {text!r}{CLEAR_RIGHT}")
 
-
 ##############################
-
 
 # print("Um texto", end="\r")
 # print("Outro texto")
-
-

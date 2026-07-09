@@ -1,0 +1,43 @@
+[
+  [
+    {
+      "11111": {
+        "Senha": "4395",
+        "Conta Corrente": "11111",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": -20,
+        "Débito": -20,
+        "Crédito": 0,
+        "Extrato": [
+          {
+            "mês": "7",
+            "7": {
+              "mês": "7",
+              "Saldo": -20,
+              "Crédito": 0,
+              "Débito": -20,
+              "Saque": 10,
+              "Depósito": 0
+            }
+          }
+        ],
+        "Histórico": [
+          [
+            "0001",
+            "11111"
+          ],
+          [
+            "0002",
+            "11111"
+          ]
+        ],
+        "RG": "1234",
+        "Nome": "Oscar",
+        "Sexo": "m",
+        "Tipo Pessoa": "Pessoa Física"
+      }
+    }
+  ],
+  []
+]

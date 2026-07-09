@@ -1,0 +1,13 @@
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+git init
+git config --global user.name "oscarlmjr"
+git config --global user.email "oscarlmjr@gmailcom"
+git remote add origin git@github.com:oscarlmjr/Python_3__completo.git
+git remote -v
+git remote set-url origin git@github.com:oscarlmjr/Python_3__completo.git
+git remote -v
+ssh-keygen
+/c/Users/oscar/.ssh/oscarlmjr_note
+eval $(ssh-agent)
+ssh-add ~/.ssh/oscarlmjr_note
