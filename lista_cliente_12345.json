@@ -1,0 +1,43 @@
+[
+  {
+    "21111": {
+      "Senha": "9115",
+      "Conta Corrente": "21111",
+      "Agência": "0001",
+      "Tipo Conta": "Conta Corrente",
+      "Saldo": 0,
+      "Débito": 0,
+      "Crédito": 0,
+      "Extrato": [
+        {
+          "mês": "1",
+          "1": [
+            {
+              "Saldo": 0
+            }
+          ]
+        },
+        {
+          "mês": "9",
+          "9": [
+            {
+              "Saque": 1
+            },
+            {
+              "Depósito": 1
+            },
+            {
+              "Saldo": 0
+            }
+          ]
+        }
+      ],
+      "Histórico": [
+        "0001"
+      ],
+      "CNPJ": "12345",
+      "Nome": "BV Code",
+      "Tipo Pessoa": "Pessoa Jurídica"
+    }
+  }
+]

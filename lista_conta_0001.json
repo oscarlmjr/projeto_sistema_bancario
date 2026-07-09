@@ -1,0 +1,66 @@
+[
+  [
+    {
+      "11111": {
+        "Histórico": [
+          "0001",
+          "0002"
+        ]
+      }
+    },
+    {
+      "11121": {
+        "Histórico": [
+          "0001",
+          "0002"
+        ]
+      }
+    },
+    {
+      "11122": {
+        "Histórico": [
+          "0001",
+          "0002"
+        ]
+      }
+    }
+  ],
+  [
+    {
+      "21111": {
+        "Senha": "9115",
+        "Conta Corrente": "21111",
+        "Agência": "0001",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 0,
+        "Débito": 0,
+        "Crédito": 0,
+        "Extrato": [],
+        "Histórico": [
+          "0001"
+        ],
+        "CNPJ": "12345",
+        "Nome": "BV Code",
+        "Tipo Pessoa": "Pessoa Jurídica"
+      }
+    },
+    {
+      "21112": {
+        "Senha": "2674",
+        "Conta Corrente": "21112",
+        "Agência": "0001",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 0,
+        "Débito": 0,
+        "Crédito": 0,
+        "Extrato": [],
+        "Histórico": [
+          "0001"
+        ],
+        "CNPJ": "12345",
+        "Nome": "BV Code",
+        "Tipo Pessoa": "Pessoa Jurídica"
+      }
+    }
+  ]
+]

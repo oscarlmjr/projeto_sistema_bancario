@@ -1,0 +1,65 @@
+[
+  [
+    {
+      "11111": {
+        "Senha": "4410",
+        "Conta Corrente": "11111",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 0,
+        "Débito": 0,
+        "Crédito": 0,
+        "Extrato": [],
+        "Histórico": [
+          "0001",
+          "0002"
+        ],
+        "RG": "1234",
+        "Nome": "Oscar",
+        "Sexo": "m",
+        "Tipo Pessoa": "Pessoa Física"
+      }
+    },
+    {
+      "11121": {
+        "Senha": "2943",
+        "Conta Corrente": "11121",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 0,
+        "Débito": 0,
+        "Crédito": 0,
+        "Extrato": [],
+        "Histórico": [
+          "0001",
+          "0002"
+        ],
+        "RG": "1234",
+        "Nome": "Oscar",
+        "Sexo": "m",
+        "Tipo Pessoa": "Pessoa Física"
+      }
+    },
+    {
+      "11122": {
+        "Senha": "3946",
+        "Conta Poupança": "11122",
+        "Agência": "0002",
+        "Tipo Conta": "Conta Poupança",
+        "Saldo": 0,
+        "Débito": 0,
+        "Crédito": 0,
+        "Extrato": [],
+        "Histórico": [
+          "0001",
+          "0002"
+        ],
+        "RG": "1234",
+        "Nome": "Oscar",
+        "Sexo": "m",
+        "Tipo Pessoa": "Pessoa Física"
+      }
+    }
+  ],
+  []
+]
