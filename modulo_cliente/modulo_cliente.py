@@ -1,10 +1,10 @@
-# shift + ctrl + l = comenta / ctrl + l = descomenta
-
-class Cliente:   # _7.1.0
-
-    def __init__(self):   # _7.1.1
+print('5.1.0_')
+class Cliente:   # 5.1.1.0_
+    print('5.1.1.0_')
+    def __init__(self):   # 5.1.1.1_
+        print('5.1.1.1_')
         self.classe_nome = Cliente.__name__
-        self.lista_cliente = []  
+        self.lista_cliente = []
         self.lista_boa_vista_bank_json = 'lista_boa_vista_bank.json'
         self.dado_agencia = 'Agência'
         self.lista_contas = [[], []]
@@ -41,11 +41,10 @@ class Cliente:   # _7.1.0
 
         self.modulo_menu_cliente = 'modulo_menu_cliente'
         self.modulo_lista_cliente = 'modulo_lista_cliente'
-        
-    def cliente_autenticacao(self):   # _7.1.2
 
+    def cliente_autenticacao(self):   # 5.1.1.2_
+        print('5.1.1.2_')
         from modulo_menu_cliente import Menu
         Menu.menu_autenticacao(self)
-                
 
 Cliente().cliente_autenticacao()

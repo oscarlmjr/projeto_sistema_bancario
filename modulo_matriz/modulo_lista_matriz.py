@@ -1,43 +1,43 @@
 import json
 
-
-class Lista:   # _6.2.0
-
-    def acesso_filial(self, agencia, lista_self):   # _6.2.1
-        
+print('1.3.0_')
+class Lista:   # 1.3.1.0_
+    print('1.3.1.0_')
+    def acesso_filial(self, agencia, lista_self):   # 1.3.1.1_
+        print('1.3.1.1_')
         try:
             with open(self.lista_boa_vista_bank_json, 'r+', encoding='utf8') as arquivo:
-                self.lista_agencia = json.load(arquivo)    
+                self.lista_agencia = json.load(arquivo)
                 if self.lista_agencia is None:
-                    self.lista_agencia = ['0001'] 
-            
+                    self.lista_agencia = ['0001']
+
         except: 
             with open(self.lista_boa_vista_bank_json, 'w+', encoding='utf8') as arquivo:
-                json.dump(self.lista_agencia, arquivo, ensure_ascii=False, indent=2)            
-            
+                json.dump(self.lista_agencia, arquivo, ensure_ascii=False, indent=2)
+
             print(f'\nA opção "Filial (3)" está indisponível no momento.')
-        
+
             from modulo_matriz.modulo_menu_matriz import Menu
             Menu.menu_opcao(self, agencia, lista_self)
-                
+
         if self.valor_agencia_filial in self.lista_agencia:
             self_agencia = lista_self.get('self_agencia', )
-            
+
             from modulo_agencia.modulo_menu_agencia import Menu
             Menu.menu_autenticacao(self_agencia, lista_self, self.valor_agencia_filial)
-    
+
         print(f'\n{self.valor_agencia_filial} não é um número de agência válido.')
-            
+
         from modulo_matriz.modulo_menu_matriz import Menu
         Menu.menu_opcao(self, agencia, lista_self)
-        
-    def cadastrar_agencia(self, agencia, lista_self):   # _6.2.2
-        
-        try:    
+
+    def cadastrar_agencia(self, agencia, lista_self):   # 1.3.1.2_
+        print('1.3.1.2_')
+        try:
             with open(self.lista_boa_vista_bank_json, 'r+', encoding='utf8') as arquivo:
-                self.lista_agencia = json.load(arquivo)    
+                self.lista_agencia = json.load(arquivo)
                 if self.lista_agencia is None:
-                    self.lista_agencia = ['0001']                    
+                    self.lista_agencia = ['0001']
         except:
             with open(self.lista_boa_vista_bank_json, 'w+', encoding='utf8') as arquivo:
                 json.dump(self.lista_agencia, arquivo, ensure_ascii=False, indent=2)
@@ -45,14 +45,12 @@ class Lista:   # _6.2.0
         valor_agencia = int(self.lista_agencia[-1])
         valor_agencia += 1
         valor_agencia = str(valor_agencia)
-        valor_agencia = valor_agencia.zfill(4)   
+        valor_agencia = valor_agencia.zfill(4)
 
         self.lista_agencia.append(valor_agencia)
-            
+
         with open(self.lista_boa_vista_bank_json, 'w+', encoding='utf8') as arquivo:
             json.dump(self.lista_agencia, arquivo, ensure_ascii=False, indent=2)
-
-        print(self.lista_agencia)
 
         modulo_agencia_valor = f'modulo_agencia_{valor_agencia}.py'
 
@@ -73,9 +71,11 @@ class Lista:   # _6.2.0
             '        from modulo_contas.modulo_contas import Contas\n', '        Contas(self.__dict__).menu_self(lista_self)\n\n',
             '    def menu_opcao(self, lista_self):\n\n', '        from modulo_agencia.modulo_menu_agencia import Menu\n',
             '        Menu.menu_opcao(self, lista_self)\n', '\n', '\n', 'if __name__ == "__main__":\n',
-            f'    Agencia("{valor_agencia}").menu_self(None)\n'                        
+            f'    Agencia("{valor_agencia}").menu_self(None)\n'
                                 ))
-        
+
+        print(f'\nAgência {valor_agencia} foi criada.')
+        print(self.lista_agencia)
+
         from modulo_matriz.modulo_menu_matriz import Menu
         Menu.menu_opcao(self, agencia, lista_self)
-    

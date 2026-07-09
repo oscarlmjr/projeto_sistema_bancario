@@ -2,65 +2,42 @@
   [
     {
       "11111": {
+        "Senha": "7779",
+        "Conta Corrente": "11111",
+        "Agência": "0001",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 0,
+        "Débito": 0,
+        "Crédito": 0,
+        "Extrato": [],
         "Histórico": [
-          "0001",
-          "0002"
-        ]
+          "0001"
+        ],
+        "RG": "1234",
+        "Nome": "Oscar",
+        "Sexo": "m",
+        "Tipo Pessoa": "Pessoa Física"
       }
     },
     {
       "11121": {
+        "Senha": "7771",
+        "Conta Corrente": "11121",
+        "Agência": "0001",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 0,
+        "Débito": 0,
+        "Crédito": 0,
+        "Extrato": [],
         "Histórico": [
-          "0001",
-          "0002"
-        ]
-      }
-    },
-    {
-      "11122": {
-        "Histórico": [
-          "0001",
-          "0002"
-        ]
+          "0001"
+        ],
+        "RG": "1234",
+        "Nome": "Oscar",
+        "Sexo": "m",
+        "Tipo Pessoa": "Pessoa Física"
       }
     }
   ],
-  [
-    {
-      "21111": {
-        "Senha": "9115",
-        "Conta Corrente": "21111",
-        "Agência": "0001",
-        "Tipo Conta": "Conta Corrente",
-        "Saldo": 0,
-        "Débito": 0,
-        "Crédito": 0,
-        "Extrato": [],
-        "Histórico": [
-          "0001"
-        ],
-        "CNPJ": "12345",
-        "Nome": "BV Code",
-        "Tipo Pessoa": "Pessoa Jurídica"
-      }
-    },
-    {
-      "21112": {
-        "Senha": "2674",
-        "Conta Corrente": "21112",
-        "Agência": "0001",
-        "Tipo Conta": "Conta Corrente",
-        "Saldo": 0,
-        "Débito": 0,
-        "Crédito": 0,
-        "Extrato": [],
-        "Histórico": [
-          "0001"
-        ],
-        "CNPJ": "12345",
-        "Nome": "BV Code",
-        "Tipo Pessoa": "Pessoa Jurídica"
-      }
-    }
-  ]
+  []
 ]

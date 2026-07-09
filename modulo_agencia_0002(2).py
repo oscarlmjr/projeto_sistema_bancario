@@ -1,5 +1,8 @@
-class Agencia:
-    def __init__(self, valor_agencia):
+print('2.4.0_')
+class Agencia:   # 2.4.1.0_
+    print('2.4.1.0_')
+    def __init__(self, valor_agencia):   # 2.4.1.1_
+        print('2.4.1.1_')
         self.valor_agencia = valor_agencia
         self.classe_nome = "Agência"
         self.lista_acesso_json = f"lista_acesso_{self.valor_agencia}.json"
@@ -19,8 +22,8 @@ class Agencia:
         self.modulo_contas = "modulo_contas"
 
         self.self_agencia = self
-
-    def menu_self(self, self_matriz):
+    def menu_self(self, self_matriz):   # 2.4.1.2_
+        print('2.4.1.2_')
         self_agencia = self.self_agencia
 
         if self_matriz is not None:
@@ -32,11 +35,12 @@ class Agencia:
         from modulo_contas.modulo_contas import Contas
         Contas(self.__dict__).menu_self(lista_self)
 
-    def menu_opcao(self, lista_self):
-
+    def menu_opcao(self, lista_self):   # 2.4.1.3_
+        print('2.4.1.3_')
         from modulo_agencia.modulo_menu_agencia import Menu
         Menu.menu_opcao(self, lista_self)
 
 
-if __name__ == "__main__":
-    Agencia("0003").menu_self(None)
+if __name__ == "__main__":   # 2.0_
+    print('2.0_')
+    Agencia("0002").menu_self(None)
