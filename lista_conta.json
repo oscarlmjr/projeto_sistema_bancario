@@ -1,0 +1,60 @@
+[
+  [
+    {
+      "11111": {
+        "RG": "1234",
+        "Nome": "Oscar",
+        "Tipo Pessoa": "Pessoa Física",
+        "Número da Conta": "11111",
+        "Tipo Conta": "Conta Corrente"
+      }
+    },
+    {
+      "11121": {
+        "RG": "2345",
+        "Nome": "Gabriel",
+        "Tipo Pessoa": "Pessoa Física",
+        "Número da Conta": "11121",
+        "Tipo Conta": "Conta Corrente"
+      }
+    },
+    {
+      "11112": {
+        "RG": "1234",
+        "Nome": "Oscar",
+        "Tipo Pessoa": "Pessoa Física",
+        "Número da Conta": "11112",
+        "Tipo Conta": "Conta Poupança"
+      }
+    },
+    {
+      "11122": {
+        "RG": "2345",
+        "Nome": "Gabriel",
+        "Tipo Pessoa": "Pessoa Física",
+        "Número da Conta": "11122",
+        "Tipo Conta": "Conta Poupança"
+      }
+    }
+  ],
+  [
+    {
+      "21111": {
+        "CNPJ": "12345",
+        "Nome": "BV Code",
+        "Tipo Pessoa": "Pessoa Jurídica",
+        "Número da Conta": "21111",
+        "Tipo Conta": "Conta Corrente"
+      }
+    },
+    {
+      "21112": {
+        "CNPJ": "23456",
+        "Nome": "Gaba Game",
+        "Tipo Pessoa": "Pessoa Jurídica",
+        "Número da Conta": "21112",
+        "Tipo Conta": "Conta Corrente"
+      }
+    }
+  ]
+]
