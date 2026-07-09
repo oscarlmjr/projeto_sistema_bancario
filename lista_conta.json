@@ -1,59 +1,89 @@
 [
   [
     {
-      "11111": {
-        "RG": "1234",
-        "Nome": "Oscar",
-        "Tipo Pessoa": "Pessoa Física",
+      "0001": {
         "Número da Conta": "11111",
-        "Tipo Conta": "Conta Corrente"
-      }
-    },
-    {
-      "11121": {
-        "RG": "2345",
-        "Nome": "Gabriel",
-        "Tipo Pessoa": "Pessoa Física",
-        "Número da Conta": "11121",
-        "Tipo Conta": "Conta Corrente"
-      }
-    },
-    {
-      "11112": {
+        "Agência": "0001",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 0,
+        "Extrato": 0,
+        "Débito": 0,
+        "Crédito": 0,
         "RG": "1234",
         "Nome": "Oscar",
-        "Tipo Pessoa": "Pessoa Física",
-        "Número da Conta": "11112",
-        "Tipo Conta": "Conta Poupança"
+        "Tipo Pessoa": "Pessoa Física"
       }
     },
     {
-      "11122": {
+      "0001": {
+        "Número da Conta": "11122",
+        "Agência": "0001",
+        "Tipo Conta": "Conta Poupança",
+        "Saldo": 0,
+        "Extrato": 0,
+        "Débito": 0,
+        "Crédito": 0,
+        "RG": "1234",
+        "Nome": "Oscar",
+        "Tipo Pessoa": "Pessoa Física"
+      }
+    },
+    {
+      "0001": {
+        "Número da Conta": "11112",
+        "Agência": "0001",
+        "Tipo Conta": "Conta Poupança",
+        "Saldo": 0,
+        "Extrato": 0,
+        "Débito": 0,
+        "Crédito": 0,
         "RG": "2345",
         "Nome": "Gabriel",
-        "Tipo Pessoa": "Pessoa Física",
-        "Número da Conta": "11122",
-        "Tipo Conta": "Conta Poupança"
+        "Tipo Pessoa": "Pessoa Física"
+      }
+    },
+    {
+      "0001": {
+        "Número da Conta": "11121",
+        "Agência": "0001",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 0,
+        "Extrato": 0,
+        "Débito": 0,
+        "Crédito": 0,
+        "RG": "2345",
+        "Nome": "Gabriel",
+        "Tipo Pessoa": "Pessoa Física"
       }
     }
   ],
   [
     {
-      "21111": {
+      "0001": {
+        "Número da Conta": "21111",
+        "Agência": "0001",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 0,
+        "Extrato": 0,
+        "Débito": 0,
+        "Crédito": 0,
         "CNPJ": "12345",
         "Nome": "BV Code",
-        "Tipo Pessoa": "Pessoa Jurídica",
-        "Número da Conta": "21111",
-        "Tipo Conta": "Conta Corrente"
+        "Tipo Pessoa": "Pessoa Jurídica"
       }
     },
     {
-      "21112": {
+      "0001": {
+        "Número da Conta": "21112",
+        "Agência": "0001",
+        "Tipo Conta": "Conta Corrente",
+        "Saldo": 0,
+        "Extrato": 0,
+        "Débito": 0,
+        "Crédito": 0,
         "CNPJ": "23456",
         "Nome": "Gaba Game",
-        "Tipo Pessoa": "Pessoa Jurídica",
-        "Número da Conta": "21112",
-        "Tipo Conta": "Conta Corrente"
+        "Tipo Pessoa": "Pessoa Jurídica"
       }
     }
   ]

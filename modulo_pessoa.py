@@ -1,46 +1,47 @@
-from modulo_menu import Menu
-
-
 class Pessoa:
     def __init__(self):
         self.lista_json_variavel = 'lista_pessoa.json'
-        self.lista_json_variavel_2 = None
         self.classe = Pessoa
         self.classe_nome = Pessoa.__name__
-        self.classe_funcao = Pessoa.listar_pessoas
+        self.classe_listar = Pessoa.listar_pessoas
+        self.classe_opcao = Pessoa.opcao_menu
         self.lista_variavel = [[], []]
         self.tipo_variavel = 'Tipo Pessoa'
         self.tipo_variavel_1 = 'Pessoa Física'
         self.tipo_variavel_2 = 'Pessoa Jurídica'
         
+    def opcao_menu(self):
+
+        from modulo_menu_pessoa import Menu
         Menu.menu_opcao(self, self.__dict__)
                    
+    def listar_menu(self, lista_acao_pessoa):
+        
+        from modulo_lista_pessoa import Lista
+        Lista(self.__dict__, lista_acao_pessoa)
+
     def listar_pessoas(self, opcao, valor_variavel):
 
         if valor_variavel == self.tipo_variavel_1:
-
-            return PessoaFisica(self.__dict__, opcao, valor_variavel, self.tipo_variavel_1, self.tipo_variavel_2)
-        PessoaJuridica(self.__dict__, opcao, valor_variavel, self.tipo_variavel_1, self.tipo_variavel_2)
+            PessoaFisica(self.__dict__, opcao, valor_variavel)
+        PessoaJuridica(self.__dict__, opcao, valor_variavel)
 
 
 class PessoaFisica:
       
-    def __init__(self, lista_menu, opcao, valor_variavel, tipo_variavel_1, tipo_variavel_2):  
-        
-        return Menu.menu_acao(self, lista_menu, opcao, valor_variavel, 
-        tipo_variavel_1, tipo_variavel_2, 'Nome', 'RG', False)
+    def __init__(self, lista_menu_pessoa, opcao, valor_variavel): 
+
+        from modulo_menu_pessoa import Menu
+        return Menu.menu_acao(self, lista_menu_pessoa, opcao, valor_variavel, 'Nome', 'RG')
     
 
 class PessoaJuridica:    
     
-    def __init__(self, lista_menu, opcao, valor_variavel, tipo_variavel_1, tipo_variavel_2):
+    def __init__(self, lista_menu_pessoa, opcao, valor_variavel):
 
-        return Menu.menu_acao(self, lista_menu, opcao, valor_variavel, 
-        tipo_variavel_1, tipo_variavel_2, 'Nome', 'CNPJ', False)
+        from modulo_menu_pessoa import Menu
+        return Menu.menu_acao(self, lista_menu_pessoa, opcao, valor_variavel, 'Nome', 'CNPJ')
     
-
-Pessoa()
-
   
 ########################
        
@@ -71,8 +72,3 @@ Pessoa()
     # @cnpj.setter
     # def cnpj(self, valor):
     #     self._cnpj = valor
-
-
-
-
-

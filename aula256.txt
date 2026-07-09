@@ -1,0 +1,53 @@
+Exercício com Abstração, Herança, Encapsulamento e Polimorfismo
+Criar um sistema bancário (extremamente simples) que tem clientes, contas e
+um banco. A ideia é que o cliente tenha uma conta (poupança ou corrente) e que
+possa sacar/depositar nessa conta. Contas corrente tem um limite extra.
+Conta (ABC)
+    ContaCorrente
+    ContaPoupanca
+Pessoa (ABC)
+    Cliente
+        Clente -> Conta
+Banco
+    Banco -> Cliente
+    Banco -> Conta
+Dicas:
+Criar classe Cliente que herda da classe Pessoa (Herança)
+    Pessoa tem nome e idade (com getters)
+    Cliente TEM conta (Agregação da classe ContaCorrente ou ContaPoupanca)
+Criar classes ContaPoupanca e ContaCorrente que herdam de Conta
+    ContaCorrente deve ter um limite extra
+    Contas têm agência, número da conta e saldo
+    Contas devem ter método para depósito
+    Conta (super classe) deve ter o método sacar abstrato (Abstração e
+    polimorfismo - as subclasses que implementam o método sacar)
+Criar classe Banco para AGREGAR classes de clientes e de contas (Agregação)
+Banco será responsável autenticar o cliente e as contas da seguinte maneira:
+    Banco tem contas e clientes (Agregação)
+    * Checar se a agência é daquele banco
+    * Checar se o cliente é daquele banco
+    * Checar se a conta é daquele banco
+Só será possível sacar se passar na autenticação do banco (descrita acima)
+Banco autentica por um método.
+
+
+
+lista_menu_contas_ = {'agencia': 'Agência', 'numero_agencia': '0001', 
+'lista_transferencia': [], 
+'lista_json_transferencia': 'lista_transferencia.json', 
+'lista_json_variavel': 'lista_conta.json', 
+'classe': <class 'modulo_contas.Contas'>, 'classe_nome': 'Contas', 
+'classe_funcao': <function Contas.listar_contas at 0x0000026F8077A520>, 
+'classe_opcao': <function Contas.opcao_menu at 0x0000026F8077A3E0>, 
+'lista_variavel': [[], []], 'saldo': 'Saldo', 'valor_saldo': 0, 
+'extrato': 'Extrato', 'valor_extrato': 0, 'debito': 'Débito', 
+'valor_debito': 0, 'credito': 'Crédito', 'valor_credito': 0, 
+'tipo_variavel': 'Tipo Conta', 'tipo_variavel_1': 'Conta Corrente', 
+'tipo_variavel_2': 'Conta Poupança'}
+
+
+lista_acao_contas_ = {'n': 0, 'opcao': 'cadastrar', 
+'dado': 'Número da Conta', 'dado_2': 'RG', 'dado_3': 'CNPJ', 
+'valor_dado': '11111', 'valor_dado_2': '1234', 'valor_dado_3': None, 
+'valor_variavel': 'Conta Corrente', 
+'tipo_variavel_1': 'Conta Corrente'}
